@@ -3,13 +3,13 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
   `java-gradle-plugin`
   kotlin("jvm") version "1.3.41"
-  id("maven")
+  id("maven-publish")
 }
 
 gradlePlugin {
   plugins {
     create("parseLangFile") {
-      id = "parselangfile"
+      id = "parseLangFile"
       implementationClass = "com.github.ricky12awesome.parselangfile.gradle.ParseLangFilePlugin"
     }
   }

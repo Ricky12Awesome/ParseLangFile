@@ -21,12 +21,18 @@ open class ParseLangFile : DefaultTask() {
 
   @TaskAction
   fun convert() {
-    if (inFile == null || outFile == null) return
+    if (inFile == null) return
+    if (outFile == null) return
 
     val inJson = gson.fromJson(inFile!!.readText(), JsonObject::class.java)
     val outJson = JsonObject()
 
     outJson.addElement(inJson, parsers)
+
+    val parent = outFile!!.parentFile
+    if (parent?.exists() == false) {
+      parent.mkdirs()
+    }
 
     outFile!!.writeText(gson.toJson(outJson))
   }
