@@ -4,7 +4,7 @@ This is still in early development
 ##### build.gradle.kts
 ```kotlin
 plugins {
-  id("parseLangFile")
+  id("parseLangFile") version "1.1"
 }
 ```
 
@@ -18,8 +18,10 @@ pluginManagement {
   resolutionStrategy {
     eachPlugin {
       if (requested.id.id == "parseLangFile") {
-        val version = requested.version ?: "-SNAPSHOT"
-        useModule("com.github.Ricky12Awesome:ParseLangFile:$version")
+        val versions = requested.version!!.split(":")
+        val moduleVersion = versions.getOrElse(1) { "-SNAPSHOT" }
+        useModule("com.github.Ricky12Awesome:ParseLangFile:$moduleVersion")
+        useVersion(versions[0])
       }
     }
   }
