@@ -1,6 +1,6 @@
-package me.ricky.fabric.gradle
+package com.github.ricky12awesome.parselangfile.gradle
 
-import me.ricky.fabric.gradle.tasks.ParseLangFile
+import com.github.ricky12awesome.parselangfile.gradle.tasks.ParseLangFile
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 

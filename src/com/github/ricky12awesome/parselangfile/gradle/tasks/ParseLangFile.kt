@@ -1,9 +1,12 @@
-package me.ricky.fabric.gradle.tasks
+package com.github.ricky12awesome.parselangfile.gradle.tasks
 
+import com.github.ricky12awesome.parselangfile.gradle.ParserData
+import com.github.ricky12awesome.parselangfile.gradle.ParserPhase
+import com.github.ricky12awesome.parselangfile.gradle.addElement
+import com.github.ricky12awesome.parselangfile.gradle.itemParserData
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonObject
-import me.ricky.fabric.gradle.*
 import org.gradle.api.DefaultTask
 import org.gradle.api.tasks.TaskAction
 import java.io.File

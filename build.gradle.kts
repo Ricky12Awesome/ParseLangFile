@@ -9,8 +9,8 @@ plugins {
 gradlePlugin {
   plugins {
     create("parseLangFile") {
-      id = "me.ricky.fabric.gradle.ParseLangFile"
-      implementationClass = "me.ricky.fabric.gradle.ParseLangFilePlugin"
+      id = "com.github.ricky12awesome.parselangfile"
+      implementationClass = "com.github.ricky12awesome.parselangfile.gradle.ParseLangFilePlugin"
     }
   }
 }

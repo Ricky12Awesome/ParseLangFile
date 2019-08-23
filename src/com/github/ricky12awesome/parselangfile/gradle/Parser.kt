@@ -1,4 +1,4 @@
-package me.ricky.fabric.gradle
+package com.github.ricky12awesome.parselangfile.gradle
 
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
@@ -17,20 +17,21 @@ data class ParserPredicateData(
 )
 
 data class ParserData(
-    val predicate: ParserPredicate,
-    val parser: Parser
+  val predicate: ParserPredicate,
+  val parser: Parser
 )
 
-fun itemParserData(): ParserData = ParserData({ group == "item" }) { path, inJson ->
-  val name = inJson["name"].asJsonPrimitive.asString
-  val tooltip = inJson["tooltip"]
+fun itemParserData(): ParserData =
+  ParserData({ group == "item" }) { path, inJson ->
+    val name = inJson["name"].asJsonPrimitive.asString
+    val tooltip = inJson["tooltip"]
 
-  addProperty(path, name)
+    addProperty(path, name)
 
-  if (tooltip != null) {
-    addElement("$path.tooltip", tooltip)
+    if (tooltip != null) {
+      addElement("$path.tooltip", tooltip)
+    }
   }
-}
 
 fun JsonObject.addElement(path: String, inJson: JsonElement): Unit = when (inJson) {
   is JsonArray -> addProperty(path, inJson.joinToString("\n") { it.asString })
